@@ -1,0 +1,33 @@
+#!/bin/sh
+# validAlphaNum - validates alphabetic and numeric characters.
+
+# Used code from:
+# https://pthree.org/2008/01/03/testing-alphanumeric-arguments-in-bash/
+
+validAlphaNum()
+{
+  # Removing non-alphanumeric chars
+  stripped="$(echo $1 | sed -e 's/[^[:alnum:]]//g')"
+
+  # Shells usually consider 0 as true and any other number as false
+  # as exit status '0' usually denotes successful execution.
+  if [ "$stripped" != "$1" ] ; then
+    return 1
+  fi
+  return 0;
+}
+
+# Sample usage of this function in a script
+
+input=$1
+if [ $# -eq 0 ]; then
+    echo -n "Enter input: "
+    read input
+fi
+
+if ! validAlphaNum "$input" ; then
+  echo "false" >&2
+  exit 1
+fi
+echo "true"
+
