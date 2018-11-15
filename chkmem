@@ -1,4 +1,7 @@
 #!/bin/bash
+# Use this script to check different app's memory usage with 'ps' command
+# It takes app or process name as argument and prints the memory usage summary
+# Provide 'all' to check total memory usage by all processes
 
 for i in "$@"; do
     if [[ "$i" == "all" ]]
