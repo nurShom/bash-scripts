@@ -2,7 +2,7 @@
 
 # This script does a very simple test for checking disk space.
 
-space=`df -h | grep -v 'loop' | grep -v 'CDROM' | tail -n +2 | awk '{print $5}' | sort -n | tail -1 | cut -d "%" -f1 -`
+space=`df -h | grep -v 'loop\|CDROM' | tail -n +2 | awk '{print $5}' | sort -n | tail -1 | cut -d "%" -f1 -`
 date=`date +%Y%m%d`
 
 case $space in
