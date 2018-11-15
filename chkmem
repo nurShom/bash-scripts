@@ -1,0 +1,16 @@
+#!/bin/bash
+
+for i in "$@"; do
+    if [[ "$i" == "all" ]]
+    then
+        echo "All Process Memory Use"
+        ps ax --no-header -o pmem,cmd | awk '{sum += $1; cnt +=1} END {print "Total Mem(%)\tNo of Proc\n" sum "\t\t" cnt;}'
+    else
+        echo "$i"
+        ps ax --no-header -o pmem,cmd | grep -i "$i" | grep -v 'grep --color=auto' | awk '{sum += $1; cnt +=1} END {print "Total Mem(%)\tNo of Proc\n" sum "\t\t" cnt;}'
+	fi
+    echo ""
+done
+
+free -m
+echo "## total = free + buff/cache + used ##"
