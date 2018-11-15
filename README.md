@@ -5,7 +5,7 @@ Various unrelated bash scripts I write every now and then
 
 **chkmem**
 Use this script to check different app's memory usage with 'ps' command. It takes app or process names as arguments and prints the memory usage summary for each of them. Provide 'all' as an arg to check total memory usage by all processes. 
-*Disclaimer: It's accuracy depends on the implementation of 'ps'.*
+*Disclaimer: Its accuracy depends on the implementation of 'ps'.*
 
 **disktest.sh**
 This script does a very simple test for checking disk space and prints a warning if the dist space is low.
